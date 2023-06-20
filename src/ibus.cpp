@@ -115,6 +115,7 @@ uint8_t ibusTypes[NUMBER_MAX_IDX] = {  // list of ibus type in the same sequence
       IBUS_SENSOR_TYPE_FUEL,         //CAPACITY,    // IBUS_SENSOR_TYPE_FUEL    based on current (volt2) in mAh
       IBUS_SENSOR_TYPE_TEMPERATURE,  //TEMP1,       //  = Volt3 but saved as temp in degree
       IBUS_SENSOR_TYPE_TEMPERATURE,  //TEMP2,       // IBUS_SENSOR_TYPE_TEMPERATURE =  Volt4 but saved as temp in degree
+      IBUS_SENSOR_TYPE_TEMPERATURE,  //TEMP_BARO,   // IBUS_SENSOR_TYPE_TEMPERATURE =  temp from baro
       IBUS_SENSOR_TYPE_CLIMB_RATE,   //VSPEED,      //     baro       in cm/s
       IBUS_SENSOR_TYPE_ALT,          //RELATIVEALT , //       baro      in cm
       
@@ -253,6 +254,7 @@ void setupListIbusFieldsToReply() {  // fill an array with the list of fields (f
     if ( baro1.baroInstalled || baro2.baroInstalled || baro3.baroInstalled) {
         addToIbus(RELATIVEALT) ; 
         addToIbus(VSPEED) ;
+        addToIbus(TEMP_BARO) ;
     }
     if ( config.pinRpm != 255  || config.pinEsc !=255 ) {
         addToIbus(RPM) ;
@@ -440,6 +442,9 @@ bool formatIbusValue( uint8_t ibusAdr){
             break;
         case TEMP2:
             ibusValue= (fields[fieldId].value * 10) + 400; // from ° to 0.1°; it seems that openTx uses an offset of 400
+            break;
+        case TEMP_BARO:
+            ibusValue= (fields[fieldId].value / 10) + 400; // from 0.01° to 0.1°; it seems that openTx uses an offset of 400
             break;
         //case CAPACITY:
         //    value= fields[fieldId].value ; // from mah to mah
