@@ -1776,11 +1776,14 @@ void printFieldValues(){
                 case TEMP2:
                     printf("Temp 2 (Volt 4) = %d degree\n", (int) fields[i].value) ;
                     break;        
+                case TEMP_BARO:
+                    printf("Temp (Baro) = %5.1f °C\n", (float_t) fields[i].value/100) ;
+                    break;        
                 case VSPEED:
-                    printf("Vspeed = %d cm/s\n", (int) fields[i].value) ;
+                    printf("Vspeed = %6.2f m/s\n", (float_t) fields[i].value/100) ;
                     break;        
                 case RELATIVEALT:
-                    printf("Baro Rel altitude = %d cm\n", (int) fields[i].value) ;
+                    printf("Baro (rel altitude) = %6.2f m\n", (float_t) fields[i].value/100) ;
                     break;        
                 case PITCH:
                     printf("Pitch = %f degree\n", (float) fields[i].value * 0.01) ;
