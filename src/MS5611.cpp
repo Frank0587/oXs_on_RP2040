@@ -203,6 +203,7 @@ int MS5611::getAltitude() // Try to get a new pressure ;
 }
 
 void MS5611::calculateAltitude(){
+    static int16_t loop = 0;
     if (_D2Prev == 0)
     {
         _D2Prev = _D2;
@@ -220,5 +221,10 @@ void MS5611::calculateAltitude(){
     altitudeCm = 4433000.0 * (1.0 - pow( (double) actualPressurePa / 101325.0, 0.1903)); // 101325 is pressure at see level in Pa; altitude is in cm
     altIntervalMicros = _lastTempRequest - _prevAltMicros;
     _prevAltMicros = _lastTempRequest ; 
+    if (loop++ > 200)
+    {
+      loop = 0;
+      sent2Core0( TEMP_BARO, temperature );
+    }
 }
 

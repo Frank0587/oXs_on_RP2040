@@ -35,6 +35,7 @@ enum fieldIdx {     // Internal Id for the measurements stored in oXs and that c
       CAPACITY,    // based on current (volt2) in mAh
       TEMP1,       // = Volt3 but saved as temp in degree
       TEMP2,       // = Volt4 but saved as temp in degree
+      TEMP_BARO,   // temperature from baro 
       VSPEED,      // baro       in cm/s
       RELATIVEALT , // baro      in cm
       

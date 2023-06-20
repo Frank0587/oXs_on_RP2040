@@ -217,6 +217,7 @@ int32_t posFieldValues[] = {
     34321,      //  CAPACITY,    // based on current (volt2) in mAh
     136,        //  TEMP1,       // = Volt3 but saved as temp in degree
     148,        //  TEMP2,       // = Volt4 but saved as temp in degree
+    1360,       //  TEMP_BARO,   
     258,        //  VSPEED,      // baro       in cm/s
     246821,     //  RELATIVEALT , // baro      in cm
       
@@ -273,6 +274,7 @@ int32_t negFieldValues[] = {
     0,      //  CAPACITY,    // based on current (volt2) in mAh
     -19,        //  TEMP1,       // = Volt3 but saved as temp in degree
     -21,        //  TEMP2,       // = Volt4 but saved as temp in degree
+    -190,       //  TEMP_BARO,   
     -258,        //  VSPEED,      // baro       in cm/s
     -46821,     //  RELATIVEALT , // baro      in cm
       
