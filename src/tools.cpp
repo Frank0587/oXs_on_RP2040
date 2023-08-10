@@ -217,7 +217,8 @@ int32_t posFieldValues[] = {
     148,        //  TEMP2,       // = Volt4 but saved as temp in degree
     1360,       //  TEMP_BARO,   
     258,        //  VSPEED,      // baro       in cm/s
-    246821,     //  RELATIVEALT , // baro      in cm
+    38400,      //  RELATIVEALT, // baro      in cm
+    51234,      //  MAXIMUMALT,  // baro (Max)  in cm
       
     89,         //  PITCH,       // 20 imu        in degree 
     78,         //  ROLL,        // imu           in degree
@@ -265,8 +266,9 @@ int32_t negFieldValues[] = {
     -19,        //  TEMP1,       // = Volt3 but saved as temp in degree
     -21,        //  TEMP2,       // = Volt4 but saved as temp in degree
     -190,       //  TEMP_BARO,   
-    -258,        //  VSPEED,      // baro       in cm/s
+    -258,       //  VSPEED,      // baro       in cm/s
     -46821,     //  RELATIVEALT , // baro      in cm
+    -51234,     //  MAXIMUMALT,  // baro (Max)  in cm
       
     -89,         //  PITCH,       // 20 imu        in degree 
     -78,         //  ROLL,        // imu           in degree

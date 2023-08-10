@@ -27,6 +27,7 @@ public:
     float altitudeHighPassCm;
     float intervalSmoothUs;  
     float smoothRelAltitudeCm ;
+    float maximumAltitudeCm;
     
     //int32_t intervalSmooth ; // we expect an interval of 20msec between 2 conversions
     float climbRateFloat ;

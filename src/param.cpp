@@ -1785,6 +1785,9 @@ void printFieldValues(){
                 case RELATIVEALT:
                     printf("Baro (rel altitude) = %6.2f m\n", (float_t) fields[i].value/100) ;
                     break;        
+                case MAXIMUMALT:
+                    printf("Baro (max altitude) = %6.2f m\n", (float_t) fields[i].value/100) ;
+                    break;        
                 case PITCH:
                     printf("Pitch = %f degree\n", (float) fields[i].value * 0.01) ;
                     break;        
