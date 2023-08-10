@@ -112,8 +112,9 @@ uint8_t ibusTypes[NUMBER_MAX_IDX] = {  // list of ibus type in the same sequence
       IBUS_SENSOR_TYPE_TEMPERATURE,  //TEMP1,       //  = Volt3 but saved as temp in degree
       IBUS_SENSOR_TYPE_TEMPERATURE,  //TEMP2,       // IBUS_SENSOR_TYPE_TEMPERATURE =  Volt4 but saved as temp in degree
       IBUS_SENSOR_TYPE_TEMPERATURE,  //TEMP_BARO,   // IBUS_SENSOR_TYPE_TEMPERATURE =  temp from baro
-      IBUS_SENSOR_TYPE_CLIMB_RATE,   //VSPEED,      //     baro       in cm/s
-      IBUS_SENSOR_TYPE_ALT,          //RELATIVEALT , //       baro      in cm
+      IBUS_SENSOR_TYPE_CLIMB_RATE,   //VSPEED,      //  baro       in cm/s
+      IBUS_SENSOR_TYPE_ALT,          //RELATIVEALT, //  baro      in cm
+      IBUS_SENSOR_TYPE_GPS_ALT,      //MAXIMUMALT,  //  baro (Max) in cm  // IBUS_SENSOR_TYPE_ALT_MAX: geht (leider) nicht, Kanal im Sender wird nicht angezeigt
       
       IBUS_SENSOR_TYPE_PITCH,        //PITCH,       //      imu        in degree 
       IBUS_SENSOR_TYPE_ROLL,         //ROLL,        //       imu           in degree
@@ -251,6 +252,7 @@ void setupListIbusFieldsToReply() {  // fill an array with the list of fields (f
         addToIbus(RELATIVEALT) ; 
         addToIbus(VSPEED) ;
         addToIbus(TEMP_BARO) ;
+        addToIbus(MAXIMUMALT) ;
     }
     if ( config.pinRpm != 255  || config.pinEsc !=255 ) {
         addToIbus(RPM) ;
