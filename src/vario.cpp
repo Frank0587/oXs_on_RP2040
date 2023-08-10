@@ -68,6 +68,10 @@ void VARIO::calculateAltVspeed(float baroAltitudeCm , int32_t baro_altIntervalMi
     // smooth altitude
     smoothRelAltitudeCm += 0.04 * ( rawRelAltitudeCm - smoothRelAltitudeCm) ;    
     
+    if (maximumAltitudeCm < smoothRelAltitudeCm){
+        maximumAltitudeCm = smoothRelAltitudeCm;
+    }
+
     altitudeLowPassCm += 0.085 * ( rawRelAltitudeCm - altitudeLowPassCm) ;
     altitudeHighPassCm += 0.1 * ( rawRelAltitudeCm - altitudeHighPassCm) ;
     intervalSmoothUs += 0.1 * (baro_altIntervalMicros - intervalSmoothUs) ; //delay between 2 measures  only if there is no overflow of pressureMicos
@@ -100,7 +104,8 @@ void VARIO::calculateAltVspeed(float baroAltitudeCm , int32_t baro_altIntervalMi
     altMillis = millisRp() ;
     if ( (altMillis - lastAltMillis) > 200){
         lastAltMillis = altMillis;
-        sent2Core0(RELATIVEALT, smoothRelAltitudeCm) ;    
+        sent2Core0(RELATIVEALT, smoothRelAltitudeCm) ; 
+        sent2Core0(MAXIMUMALT, maximumAltitudeCm) ; 
     } 
 }
 

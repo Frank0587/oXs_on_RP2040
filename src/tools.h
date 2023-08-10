@@ -37,7 +37,8 @@ enum fieldIdx {     // Internal Id for the measurements stored in oXs and that c
       TEMP2,       // = Volt4 but saved as temp in degree
       TEMP_BARO,   // temperature from baro 
       VSPEED,      // baro       in cm/s
-      RELATIVEALT , // baro      in cm
+      RELATIVEALT, // baro      in cm
+      MAXIMUMALT,  // baro Max  in cm
       
       PITCH,       // 20 imu        in degree 
       ROLL,        // imu           in degree
